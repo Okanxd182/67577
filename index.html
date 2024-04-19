@@ -4,65 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel Quiz</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: rgb(45, 37, 37);
+        }
+        h1 {
+            color: red;
+            text-align: center;
+        }
+        .white-text {
+            color: white; /* Textfarbe auf weiß setzen */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            margin: 10px;
+            text-align: center;
+            position: relative;
+            width: 200px; /* Breite anpassen */
+            height: 200px; /* Höhe anpassen */
+            border: 2px dashed #ccc; /* Gestrichelte Umrandung */
+            border-radius: 5px; /* Abgerundete Ecken */
+            background-color: #f9f9f9; /* Hintergrundfarbe */
+        }
+        .term {
+            margin-top: 10px; /* Abstand zum Bild */
+            padding: 5px 10px; /* Innenabstand */
+            background-color: #f2f2f2; /* Hintergrundfarbe */
+            border: 1px solid #ccc; /* Umrandung */
+            border-radius: 5px; /* Abgerundete Ecken */
+            cursor: pointer; /* Zeiger-Cursor */
+            display: inline-block; /* In einer Zeile anzeigen */
+            margin-right: 5px; /* Rechten Abstand zwischen den Begriffen hinzufügen */
+            margin-bottom: 5px; /* Unteren Abstand zwischen den Begriffen hinzufügen */
+        }
+    </style>
 </head>
 <body>
-    <h1>MARVEL Quiz</h1>
-    <p class="white-text">Die Infinity-Steine sind mächtige Artefakte im Marvel-Universum, die in verschiedenen Comics, Filmen und Serien eine zentrale Rolle spielen. <br>
+    <h1>MARVEL Quizz</h1>
+    <p class="white-text" style="text-align: center;">Die Infinity-Steine sind mächtige Artefakte im Marvel-Universum, die in verschiedenen Comics, Filmen und Serien eine zentrale Rolle spielen. <br>
     Es gibt insgesamt sechs dieser Steine, von denen jeder eine einzigartige Kraft verkörpert und das Universum auf verschiedene Weisen beeinflussen kann.</p>
-    <p class="white-text">Im Folgenden sind alle sechs Infinity-Steine abgebildet. Bitte ordne jedem Bild den entsprechenden Begriff zu, beachte jedoch, dass du jedem Bild nur einmal einen Begriff zuordnen kannst und diese Zuordnung nicht mehr geändert werden kann.</p>
+    <p class="white-text" style="text-align: center;">Im Folgenden sind alle sechs Infinity-Steine abgebildet. Bitte ordne jedem Bild den entsprechenden Begriff zu, beachte jedoch, dass du jedem Bild nur einmal einen Begriff zuordnen kannst und diese Zuordnung nicht mehr geändert werden kann.</p>
     <div class="container">
-        <div class="item" id="s1" draggable="true">
+        <div class="item" id="s1">
             <div class="image-container">
-                <img src="images/Orangener.png" alt="Infinity Stein 1" width="200px" height="150px">
+                <img src="Orangener.png" alt="Infinity Stein 1" width="200px" height="150px">
             </div>
-            <div class="assigned-term"></div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
         </div>
-        <div class="item" id="s2" draggable="true">
+        <div class="item" id="s2">
             <div class="image-container">
-                <img src="images/Gelber.png" alt="Infinity Stein 2" width="200px" height="150px">
+                <img src="Lilaner.png" alt="Infinity Stein 2" width="200px" height="150px">
             </div>
-            <div class="assigned-term"></div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
         </div>
-        <div class="item" id="s3" draggable="true">
+        <div class="item" id="s3">
             <div class="image-container">
-                <img src="images/Gruner.png" alt="Infinity Stein 3" width="200px" height="150px">
+                <img src="Gruner.png" alt="Infinity Stein 3" width="200px" height="150px">
             </div>
-            <div class="assigned-term"></div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
         </div>
-        <div class="item" id="s4" draggable="true">
+        <div class="item" id="s4">
             <div class="image-container">
-                <img src="images/Lilaner.png" alt="Infinity Stein 4" width="200px" height="150px">
+                <img src="Blauer.png" alt="Infinity Stein 4" width="200px" height="150px">
             </div>
-            <div class="assigned-term"></div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
         </div>
-        <div class="item" id="s5" draggable="true">
+        <div class="item" id="s5">
             <div class="image-container">
-                <img src="images/Blauer.png" alt="Infinity Stein 5" width="200px" height="150px">
+                <img src="Roter.png" alt="Infinity Stein 5" width="200px" height="150px">
             </div>
-            <div class="assigned-term"></div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
         </div>
-        <div class="item" id="s6" draggable="true">
+        <div class="item" id="s6">
             <div class="image-container">
-                <img src="images/Roter.png" alt="Infinity Stein 6" width="200px" height="150px">
+                <img src="Gelber.png" alt="Infinity Stein 6" width="200px" height="150px">
             </div>
-            <div class="assigned-term"></div>
+            <div class="term-container">
+                <p class="assigned-term"></p>
+            </div>
         </div>
     </div>
-    <div class="buttons">
-        <button class="term" id="raumstein" draggable="true">Raumstein</button>
-        <button class="term" id="geiststein" draggable="true">Geiststein</button>
-        <button class="term" id="realitaetsstein" draggable="true">Realitätsstein</button>
-        <button class="term" id="machtstein" draggable="true">Machtstein</button>
-        <button class="term" id="zeitstein" draggable="true">Der Zeitstein</button>
-        <button class="term" id="seelestein" draggable="true">Die Seele des Stein</button>
+    <div class="terms">
+        <p class="term" id="raumstein">Raumstein</p>
+        <p class="term" id="geiststein">Geiststein</p>
+        <p class="term" id="realitaetsstein">Realitätsstein</p>
+        <p class="term" id="machtstein">Machtstein</p>
+        <p class="term" id="zeitstein">Der Zeitstein</p>
+        <p class="term" id="seelestein">Die Seele des Stein</p>
     </div>
-    <script src="script.js"></script> 
+    <script>
+        // Event listener für Begriffe
+        const terms = document.querySelectorAll('.term');
+        terms.forEach(term => {
+            term.addEventListener('click', () => {
+                // Begriff zum zuletzt ausgewählten Bild hinzufügen
+                const selectedImage = document.querySelector('.selected-image');
+                if (selectedImage && !selectedImage.querySelector('.assigned-term').textContent) {
+                    selectedImage.querySelector('.assigned-term').textContent = term.textContent;
+                }
+            });
+        });
+
+        // Event listener für Bilder
+        const items = document.querySelectorAll('.item');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                // Markiere das ausgewählte Bild
+                const selectedImage = document.querySelector('.selected-image');
+                if (selectedImage) {
+                    selectedImage.classList.remove('selected-image');
+                }
+                item.classList.add('selected-image');
+            });
+        });
+    </script>
     <div class="bg"></div>
 
 <div class="star-field">
 <div class="layer"></div>
 <div class="layer"></div>
-<div class="layer"></div><!-- Link to external JavaScript file -->
+<div class="layer"></div>
 </body>
 </html>
