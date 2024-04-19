@@ -205,3 +205,9 @@ h1 {
         transform: translateX(-50%);
     }
 }
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3rem; /* Adjust font size for mobile screens */
+    }
+}
