@@ -9,6 +9,9 @@ terms.forEach(term => {
     term.addEventListener('dragstart', (event) => {
         draggedTerm = event.target;
     });
+    term.addEventListener('touchstart', (event) => {
+        draggedTerm = event.target;
+    });
 });
 
 // Event listener for images to handle drop
@@ -17,19 +20,30 @@ items.forEach(item => {
     item.addEventListener('dragover', (event) => {
         event.preventDefault(); // Prevent default behavior to allow drop
     });
+    item.addEventListener('touchmove', (event) => {
+        event.preventDefault(); // Prevent default behavior to allow drop
+    });
 
     item.addEventListener('drop', (event) => {
         event.preventDefault(); // Prevent default behavior to allow drop
-        if (draggedTerm) {
-            // Clone the dragged button and append it to the image container
-            const imageContainer = event.target.querySelector('.image-container');
-            const clonedButton = draggedTerm.cloneNode(true);
-            clonedButton.removeAttribute('draggable'); // Remove draggable attribute from the cloned button
-            clonedButton.classList.remove('term'); // Remove term class from the cloned button
-            clonedButton.classList.add('cloned-button'); // Add class for styling
-            imageContainer.appendChild(clonedButton);
-            draggedTerm.remove(); // Remove the original button
-            draggedTerm = null; // Reset dragged term
-        }
+        handleDrop(event);
+    });
+    item.addEventListener('touchend', (event) => {
+        event.preventDefault(); // Prevent default behavior to allow drop
+        handleDrop(event);
     });
 });
+
+function handleDrop(event) {
+    if (draggedTerm) {
+        // Clone the dragged button and append it to the image container
+        const imageContainer = event.target.querySelector('.image-container');
+        const clonedButton = draggedTerm.cloneNode(true);
+        clonedButton.removeAttribute('draggable'); // Remove draggable attribute from the cloned button
+        clonedButton.classList.remove('term'); // Remove term class from the cloned button
+        clonedButton.classList.add('cloned-button'); // Add class for styling
+        imageContainer.appendChild(clonedButton);
+        draggedTerm.remove(); // Remove the original button
+        draggedTerm = null; // Reset dragged term
+    }
+}
