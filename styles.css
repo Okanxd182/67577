@@ -196,3 +196,12 @@ h1 {
 .star-field .layer:nth-child(3) {
     animation: sf-fly-by-3 5s linear infinite;
 }
+
+@media (max-width: 600px) {
+    .term {
+        /* Adjust positioning for mobile screens */
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
